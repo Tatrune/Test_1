@@ -1,0 +1,181 @@
+   1               		.file	"USARTs.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  17               	.Ltext0:
+  18               	.global	USART0_vInit
+  20               	USART0_vInit:
+  21               	.LFB2:
+  22               	.LM1:
+  23               	/* prologue: function */
+  24               	/* frame size = 0 */
+  25               	.LM2:
+  26 0000 1092 9000 		sts 144,__zero_reg__
+  27               	.LM3:
+  28 0004 83E0      		ldi r24,lo8(3)
+  29 0006 89B9      		out 41-32,r24
+  30               	.LM4:
+  31 0008 86E0      		ldi r24,lo8(6)
+  32 000a 8093 9500 		sts 149,r24
+  33               	.LM5:
+  34 000e 88E1      		ldi r24,lo8(24)
+  35 0010 8AB9      		out 42-32,r24
+  36               	/* epilogue start */
+  37               	.LM6:
+  38 0012 0895      		ret
+  39               	.LFE2:
+  41               	.global	USART0_vSendByte
+  43               	USART0_vSendByte:
+  44               	.LFB3:
+  45               	.LM7:
+  46               	/* prologue: function */
+  47               	/* frame size = 0 */
+  48               	.LVL0:
+  49               	.L4:
+  50               	.LM8:
+  51 0014 5D9B      		sbis 43-32,5
+  52 0016 00C0      		rjmp .L4
+  53               	.LM9:
+  54 0018 8CB9      		out 44-32,r24
+  55               	/* epilogue start */
+  56               	.LM10:
+  57 001a 0895      		ret
+  58               	.LFE3:
+  60               	.global	USART0_vReceiveByte
+  62               	USART0_vReceiveByte:
+  63               	.LFB4:
+  64               	.LM11:
+  65               	/* prologue: function */
+  66               	/* frame size = 0 */
+  67               	.L8:
+  68               	.LM12:
+  69 001c 5F9B      		sbis 43-32,7
+  70 001e 00C0      		rjmp .L8
+  71               	.LM13:
+  72 0020 8CB1      		in r24,44-32
+  73               	/* epilogue start */
+  74               	.LM14:
+  75 0022 0895      		ret
+  76               	.LFE4:
+  78               	.global	main
+  80               	main:
+  81               	.LFB5:
+  82               	.LM15:
+  83               	/* prologue: function */
+  84               	/* frame size = 0 */
+  85               	.LBB18:
+  86               	.LBB19:
+  87               	.LM16:
+  88 0024 1092 9000 		sts 144,__zero_reg__
+  89               	.LM17:
+  90 0028 83E0      		ldi r24,lo8(3)
+  91 002a 89B9      		out 41-32,r24
+  92               	.LM18:
+  93 002c 86E0      		ldi r24,lo8(6)
+  94 002e 8093 9500 		sts 149,r24
+  95               	.LM19:
+  96 0032 88E1      		ldi r24,lo8(24)
+  97 0034 8AB9      		out 42-32,r24
+  98               	.L12:
+  99               	.LBE19:
+ 100               	.LBE18:
+ 101               	.LBB20:
+ 102               	.LBB21:
+ 103               	.LM20:
+ 104 0036 5D9B      		sbis 43-32,5
+ 105 0038 00C0      		rjmp .L12
+ 106               	.LM21:
+ 107 003a 81E4      		ldi r24,lo8(65)
+ 108 003c 8CB9      		out 44-32,r24
+ 109               	.L13:
+ 110               	.LBE21:
+ 111               	.LBE20:
+ 112               	.LBB22:
+ 113               	.LBB23:
+ 114               	.LM22:
+ 115 003e 5D9B      		sbis 43-32,5
+ 116 0040 00C0      		rjmp .L13
+ 117               	.LM23:
+ 118 0042 86E5      		ldi r24,lo8(86)
+ 119 0044 8CB9      		out 44-32,r24
+ 120               	.L14:
+ 121               	.LBE23:
+ 122               	.LBE22:
+ 123               	.LBB24:
+ 124               	.LBB25:
+ 125               	.LM24:
+ 126 0046 5D9B      		sbis 43-32,5
+ 127 0048 00C0      		rjmp .L14
+ 128               	.LM25:
+ 129 004a 82E5      		ldi r24,lo8(82)
+ 130 004c 8CB9      		out 44-32,r24
+ 131               	.L15:
+ 132               	.LBE25:
+ 133               	.LBE24:
+ 134               	.LBB26:
+ 135               	.LBB27:
+ 136               	.LM26:
+ 137 004e 5D9B      		sbis 43-32,5
+ 138 0050 00C0      		rjmp .L15
+ 139               	.LM27:
+ 140 0052 8DE0      		ldi r24,lo8(13)
+ 141 0054 8CB9      		out 44-32,r24
+ 142               	.L16:
+ 143               	.LBE27:
+ 144               	.LBE26:
+ 145               	.LBB28:
+ 146               	.LBB29:
+ 147               	.LM28:
+ 148 0056 5D9B      		sbis 43-32,5
+ 149 0058 00C0      		rjmp .L16
+ 150               	.LM29:
+ 151 005a 8AE0      		ldi r24,lo8(10)
+ 152               	.LVL1:
+ 153               	.L29:
+ 154 005c 8CB9      		out 44-32,r24
+ 155               	.LVL2:
+ 156               	.L28:
+ 157               	.LBE29:
+ 158               	.LBE28:
+ 159               	.LBB30:
+ 160               	.LBB31:
+ 161               	.LM30:
+ 162 005e 5F9B      		sbis 43-32,7
+ 163 0060 00C0      		rjmp .L28
+ 164               	.LM31:
+ 165 0062 8CB1      		in r24,44-32
+ 166               	.LVL3:
+ 167               	.L18:
+ 168               	.LBE31:
+ 169               	.LBE30:
+ 170               	.LBB32:
+ 171               	.LBB33:
+ 172               	.LM32:
+ 173 0064 5D9B      		sbis 43-32,5
+ 174 0066 00C0      		rjmp .L18
+ 175 0068 00C0      		rjmp .L29
+ 176               	.LBE33:
+ 177               	.LBE32:
+ 178               	.LFE5:
+ 228               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 USARTs.c
+C:\Users\hoang\AppData\Local\Temp/ccZmTEwe.s:2      *ABS*:0000003f __SREG__
+C:\Users\hoang\AppData\Local\Temp/ccZmTEwe.s:3      *ABS*:0000003e __SP_H__
+C:\Users\hoang\AppData\Local\Temp/ccZmTEwe.s:4      *ABS*:0000003d __SP_L__
+C:\Users\hoang\AppData\Local\Temp/ccZmTEwe.s:5      *ABS*:00000034 __CCP__
+C:\Users\hoang\AppData\Local\Temp/ccZmTEwe.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\hoang\AppData\Local\Temp/ccZmTEwe.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\hoang\AppData\Local\Temp/ccZmTEwe.s:20     .text:00000000 USART0_vInit
+C:\Users\hoang\AppData\Local\Temp/ccZmTEwe.s:43     .text:00000014 USART0_vSendByte
+C:\Users\hoang\AppData\Local\Temp/ccZmTEwe.s:62     .text:0000001c USART0_vReceiveByte
+C:\Users\hoang\AppData\Local\Temp/ccZmTEwe.s:80     .text:00000024 main
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
