@@ -1,1 +1,7 @@
+<<<<<<< HEAD
 master
+=======
+123
+
+d2sad321as23d1as
+>>>>>>> 8f0201c5b511db56f1f9efb36d2c2b677e14bc66
